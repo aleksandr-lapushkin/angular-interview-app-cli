@@ -1,0 +1,31 @@
+<div class="row">
+	<div class="columns twelve centered">
+		<button routerLink="/orders">Home</button>
+		<button (click)="saveOrder()" class="button-primary">Save</button>
+	</div>
+</div>
+<div>
+    <form>
+        <div class="row">
+            <div class="columns six">
+                <label for="title">Title</label>
+                <input 
+                    name="title" 
+                    class="u-full-width" 
+                    id="title" 
+                    placeholder="Order Title" 
+                    type="text" 
+                    required/>
+            </div>
+        
+            <div class="columns six">
+                <label for="status">Status</label>
+                <select name="status" class="u-full-width">
+                    <option *ngFor="let status of statuses">
+                        {{status}}
+                    </option>
+                </select>
+            </div>
+        </div>
+    </form>
+</div>

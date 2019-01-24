@@ -1,0 +1,30 @@
+<div class="row">
+	<div class="columns twelve centered">
+		<button routerLink="/orders/new">New</button>
+		<button (click)="fetchAllOrders()">Refresh</button>
+	</div>
+</div>
+<div class="row">
+		<div class="column twelve">
+			<div class="u-full-width">
+				<table style="width: 100%" class="orders-list">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Title</th>
+							<th>Status</th>
+						</tr>
+					</thead>
+					<tbody *ngIf="loaded">
+						<p *ngIf="orders.length === 0">No data</p>
+						<tr *ngFor="let order of orders" class="order-row">
+							<td>{{order.id}}</td>
+							<td>{{order.title}}</td>
+							<td>{{order.status}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<app-loader *ngIf="!loaded"></app-loader>
+		</div>
+</div>
